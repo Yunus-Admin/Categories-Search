@@ -157,12 +157,12 @@ console.log(searchId(categoriesTree, 'b47b2bbc-df04-4c15-8016-ac4dbcf33cca'));
 
 function showName(arrOfObj) {
   arrOfObj.forEach((obj) => {
-    console.log('name:', obj.name);
+    if (obj.disabled !== true) {
+      console.log('name:', obj.name);
+    }
 
     if (obj.children.length > 0) {
       showName(obj.children);
-    } else if (obj.disabled === true) {
-      delete obj.name;
     }
   });
 }
